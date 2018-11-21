@@ -79,6 +79,8 @@
                 $skill1 = $row['skill'];
                 $education1 = $row['mineducation'];
                 $role1 = $row['role'];
+                $img = $row['img'];
+                $type = $row['type'];
 
                 $company = "select * from company where id = {$cid1}";
                 $cquery = mysqli_query($connection, $company);
@@ -100,9 +102,7 @@
                     <div class="col-md-8 pull-right">
                         <div class="col_1">
                             <div class="col-sm-4 row_2">
-                                <a href="watchJobdetails.php?j=<?php echo $id1; ?>"><img
-                                        src="companyImage/<?php echo $db_company_img; ?>" class="img-responsive"
-                                        alt=""/></a>
+                                <a href="watchJobdetails.php?j=<?php echo $id1; ?>"><img src="<?php if($type == "company"){ echo 'companyImage/' . $db_company_img;} else {echo 'companyImage/20.jpg';} ?>" class="img-responsive" alt=""/></a>
                             </div>
                             <div class="col-sm-8 row_1">
                                 <h4><a href="watchJobdetails.php?j=<?php echo $id1; ?>"><?php echo $title1; ?></a></h4>
